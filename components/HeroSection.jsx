@@ -10,7 +10,7 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 sm:grid-cols-12">
             <div className="col-span-7 place-self-center text-center sm:text-left">
                 <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-red-500">Hi!, I'm{" "}</span> 
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-red-500">Hi!, I&apos;m{" "}</span> 
                     <br></br>
                     <TypeAnimation sequence={[
                         'Vasu Mittal', 1000, 
@@ -27,7 +27,7 @@ const HeroSection = () => {
                     />
                 </h1>
                 <p className="text-transparent text-base bg-clip-text bg-gradient-to-r from-gray-500 to-white sm:text-lg mb-6 lg:text-xl font-extrabold">
-                    I'm a developer who is dedicated to using his current skills and learning new things to create efficient and smarter solutions that have a positive impact on society.
+                    I&apos;m a developer who is dedicated to using his current skills and learning new things to create efficient and smarter solutions that have a positive impact on society.
                 </p>
                 <div className="flex space-x-4 flex-wrap">
                     <a href="https://drive.google.com/uc?export=download&id=16N-BMsH5r3zjIqBzBNeN5Ql7_mkWsFRC" className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-black transition duration-300 ease-out border-2 border-gray-900 rounded-full shadow-md group">

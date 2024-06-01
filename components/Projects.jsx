@@ -32,7 +32,7 @@ const Projects = () => {
     <div className="container mx-auto p-4 bg-black" id='projects'>
       <h2 className="text-5xl text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-500 to-yellow-500 mb-4 font-extrabold">Projects</h2>
       <p className="text-base font-semibold lg:text-lg text-gray-300 mb-8">
-        Here are some of the projects I've worked on. I hope you find them as interesting and engaging as I did!      
+        Here are some of the projects I&apos;ve worked on. I hope you find them as interesting and engaging as I did!      
      </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
