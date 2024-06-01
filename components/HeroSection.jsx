@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { TypeAnimation } from 'react-type-animation';
-import { FaLinkedin, FaGithub, FaDownload, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaDownload, FaEnvelope, FaExternalLinkAlt } from "react-icons/fa";
 
 const HeroSection = () => {
     return (
@@ -30,13 +30,13 @@ const HeroSection = () => {
                     I&apos;m a developer who is dedicated to using his current skills and learning new things to create efficient and smarter solutions that have a positive impact on society.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <a href="https://drive.google.com/uc?export=download&id=16N-BMsH5r3zjIqBzBNeN5Ql7_mkWsFRC" className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-black transition duration-300 ease-out border-2 border-gray-900 rounded-full shadow-md group">
-                        <span className="absolute inset-0 flex items-center justify-center w-full h-full text-red duration-300 -translate-x-full bg-white group-hover:translate-x-0 ease">
-                            <FaDownload className="mr-2" />
+                    <a href="https://drive.google.com/file/d/16N-BMsH5r3zjIqBzBNeN5Ql7_mkWsFRC/view" target="_blank" className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-black transition duration-300 ease-out border-2 border-gray-900 rounded-full shadow-md group">
+                        <span className="absolute inset-0 flex items-center justify-center w-full h-full text-black duration-300 -translate-x-full bg-white group-hover:translate-x-0 ease">
+                            <FaExternalLinkAlt className="mr-2" />
                             Resume
                         </span>
                         <span className="absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease">
-                            <FaDownload className="mr-2" />
+                            <FaExternalLinkAlt className="mr-2" />
                             Resume
                         </span>
                         <span className="relative invisible">Resume</span>
