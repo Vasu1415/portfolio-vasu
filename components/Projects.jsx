@@ -46,7 +46,7 @@ const Projects = () => {
                 className="w-full h-48 object-cover" 
               />
               <div className="p-6">
-                <h2 className="text-2xl text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yello-500 to-yellow-500 mb-4 font-extrabold">{project.name}</h2>
+                <h2 className="text-2xl text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-500 to-yellow-500 mb-4 font-extrabold">{project.name}</h2>
                 <p className="text-gray-300 font-serif mb-4 font-semibold">{project.description}</p>
                 <div className="mb-4">
                   {project.skills.map((skill, skillIndex) => (
