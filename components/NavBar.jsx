@@ -24,7 +24,7 @@ const NavBar = () => {
     <nav className="fixed top-0 left-0 right-0 z-10 bg-black bg-opacity-100">
       <div className="flex flex-wrap items-center justify-between mx-auto px-4 py-4">
         <Link href="/" className="text-2xl md:text-5xl text-white font-semibold">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-red-500">VM</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-500 to-yellow-500 font-extrabold">VM</span>
         </Link>
         <div className="mobile-menu block md:hidden">
           {!navBarOpen ? (
@@ -51,7 +51,7 @@ const NavBar = () => {
                   to={link.path}
                   smooth={true}
                   duration={500}
-                  offset={-80} // Adjust based on your header height
+                  offset={-80} 
                   className="text-2xl cursor-pointer hover:text-gray-400 text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white"
                   onClick={() => setNavBarOpen(false)}
                 >
