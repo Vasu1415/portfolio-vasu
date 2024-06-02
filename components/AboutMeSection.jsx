@@ -4,22 +4,23 @@ import TabButton from './TabButton';
 import LanguagesAndTechnologies from './LanguageAndTechnologies';
 import RelevantCoursework from './RelevantCoursework';
 import Awards from './Awards';
+import Education from './Education';
 
 const TAB_DATA = [
   {
-    title: "LANGUAGES AND TECHNOLOGIES",
+    title: "Languages And Technologies",
     id: "language",
     content: <LanguagesAndTechnologies />,
   },
   {
-    title: "RELEVANT COURSEWORK",
-    id: "coursework",
-    content: <RelevantCoursework />,
-  },
-  {
-    title: "AWARDS",
+    title: "Awards",
     id: "awards",
     content: <Awards />,
+  },
+  {
+    title: "Education",
+    id: "education",
+    content: <Education />,
   },
 ];
 

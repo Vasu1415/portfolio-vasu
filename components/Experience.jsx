@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const Experience = () => {
   const events = [
@@ -8,13 +9,13 @@ const Experience = () => {
       description: '(Incoming) Software Design Engineer Intern',
     },
     {
-      title: 'Undergraduate Research Assistant @Shahoveisi Labs, University of Maryland, College Park',
+      title: 'Undergraduate Research Assistant @Shahoveisi Lab, University of Maryland, College Park',
       date: 'May 2024 - Present',
       description: 'Developing a predictive machine learning model to evaluate the risk of airborne disease transmission, incorporating comprehensive data analysis of local vegetation types and prevailing weather conditions across several states in US.',
     },
     {
       title: 'Web Developer @RAM CLUB, University Of Maryland, College Park',
-      date: 'May 2024 - Present',
+      date: 'Apr 2024 - Present',
       description: 'Redesigning the UMD Robotics Club website for the ROBOSUB competition, incorporating JavaScript frameworks and CSS libraries to elevate UI quality and ensure cross-platform compatibility.',
     },
     {
@@ -41,16 +42,16 @@ const Experience = () => {
       <div className="text-5xl text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-500 to-yellow-500 font-extrabold mb-8">Experience</div>
       <div className="relative">
         <div className="absolute h-full left-1/2 transform -translate-x-1/2 hidden md:block" style={{ background: 'linear-gradient(to bottom, red, yellow)', width: '4px' }}></div>
-        <div className="space-y-12">
+        <div className="space-y-2">
           {events.map((event, index) => (
             <div
               key={index}
               className={`flex flex-col md:flex-row items-center justify-between w-full md:w-3/4 mx-auto ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`}
             >
               <div className="w-full md:w-5/12">
-                <div className="p-6 rounded-lg shadow-lg border border-white bg-opacity-10 transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <div className="p-4 rounded-lg shadow-lg border border-white bg-opacity-10 transition-transform transform">
                   <h3 className="text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-500 to-yellow-500 font-extrabold mb-2">{event.title}</h3>
-                  <p className="text-lg font-semibold mb-2 text-blue-500">{event.date}</p>
+                  <p className="text-lg font-semibold mb-2 text-gray-300">{event.date}</p>
                   <p className="text-md font-bold mb-4">{event.description}</p>
                   {event.links && (
                     <div className="mt-4">
@@ -60,9 +61,17 @@ const Experience = () => {
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-block uppercase font-semibold bg-black text-white border border-white py-1 px-3 rounded-lg mr-2 mt-2 transition duration-300 ease-in-out transform hover:bg-white hover:text-black"
+                          className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-black transition duration-300 ease-out border-2 border-gray-900 rounded-full shadow-md group"
                         >
-                          {link.name}
+                          <span className="absolute inset-0 flex items-center justify-center w-full h-full text-black duration-300 -translate-x-full bg-white group-hover:translate-x-0 ease">
+                            <FaExternalLinkAlt className="mr-2" />
+                            {link.name}
+                          </span>
+                          <span className="absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease">
+                            <FaExternalLinkAlt className="mr-2" />
+                            {link.name}
+                          </span>
+                          <span className="relative invisible font-extrabold">{link.name}</span>
                         </a>
                       ))}
                     </div>
