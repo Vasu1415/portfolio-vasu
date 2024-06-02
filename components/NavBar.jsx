@@ -8,6 +8,10 @@ import MenuOverlay from "./MenuOverlay";
 
 const navigationLinks = [
   {
+    title: "Coursework",
+    path: "coursework"
+  },
+  {
     title: "Experience",
     path: "experience"
   },

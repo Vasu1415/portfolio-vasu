@@ -2,7 +2,6 @@
 import React, { useTransition, useState } from 'react';
 import TabButton from './TabButton';
 import LanguagesAndTechnologies from './LanguageAndTechnologies';
-import RelevantCoursework from './RelevantCoursework';
 import Awards from './Awards';
 import Education from './Education';
 
