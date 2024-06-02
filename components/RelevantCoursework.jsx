@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { FaExternalLinkAlt } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaChevronDown } from 'react-icons/fa';
 
 const courses = {
   "Spring 2024": [
@@ -32,15 +32,15 @@ const courses = {
     ["FIRE298: FIRE Semester 3", "https://www.fire.umd.edu/about"],
   ],
   "Summer 2022": [
-    ["STAT400: Applied Probability & Statistics I", "https://planetterp.com/course/STAT400"],
+    ["STAT400: App. Probability & Statistics I", "https://planetterp.com/course/STAT400"],
   ],
   "Spring 2022": [
-    ["CMSC132: Object-Oriented Programming II", "https://planetterp.com/course/CMSC132"],
+    ["CMSC132: Object-Oriented Prog. II", "https://planetterp.com/course/CMSC132"],
     ["MATH141: Calculus II", "https://example.com/math141"],
     ["FIRE198: FIRE Semester 2", "https://www.fire.umd.edu/about"],
   ],
   "Fall 2021": [
-    ["CMSC131: Object-Oriented Programming I", "https://planetterp.com/course/CMSC131"],
+    ["CMSC131: Object-Oriented Prog. I", "https://planetterp.com/course/CMSC131"],
     ["MATH140: Calculus I", "https://planetterp.com/course/MATH140"],
     ["FIRE120: FIRE Semester 1", "https://www.fire.umd.edu/about"],
   ],
@@ -48,21 +48,52 @@ const courses = {
 
 const RelevantCoursework = () => {
   const [selectedSemester, setSelectedSemester] = useState("Spring 2024");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   return (
     <section className="bg-black text-white py-12" id='coursework'>
       <div className="container mx-auto px-6 lg:px-8">
         <h2 className="text-4xl text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-500 to-yellow-500 mb-12 font-extrabold">Relevant Coursework</h2>
-        <div className="flex justify-center space-x-4 overflow-x-auto mb-8">
-          {Object.keys(courses).map(semester => (
-            <button
-              key={semester}
-              onClick={() => setSelectedSemester(semester)}
-              className={`py-2 px-4 whitespace-nowrap ${selectedSemester === semester ? "text-red-500 border-b-2 font-semibold border-red-500" : "text-white font-semibold hover:text-white transition"}`}
-            >
-              {semester}
-            </button>
-          ))}
+        <div className="relative mb-8">
+          <button
+            onClick={toggleDropdown}
+            className="block w-full py-2 px-4 text-left bg-transparent border border-white font-semibold text-white rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 lg:hidden flex justify-between items-center"
+          >
+            {selectedSemester}
+            <FaChevronDown className="ml-2" />
+          </button>
+          {isDropdownOpen && (
+            <ul className="absolute z-10 mt-2 w-full bg-gray-800 rounded-md shadow-lg">
+              {Object.keys(courses).map(semester => (
+                <li key={semester}>
+                  <button
+                    onClick={() => {
+                      setSelectedSemester(semester);
+                      setIsDropdownOpen(false);
+                    }}
+                    className="block w-full py-2 px-4 text-left text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+                  >
+                    {semester}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+          <div className="hidden lg:flex justify-center space-x-4">
+            {Object.keys(courses).map(semester => (
+              <button
+                key={semester}
+                onClick={() => setSelectedSemester(semester)}
+                className={`py-2 px-4 whitespace-nowrap ${selectedSemester === semester ? "text-red-500 border-b-2 font-semibold border-red-500" : "text-white font-semibold hover:text-white transition"}`}
+              >
+                {semester}
+              </button>
+            ))}
+          </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {courses[selectedSemester].map(([course, link], index) => (
