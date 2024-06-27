@@ -20,7 +20,7 @@ const Experience = () => {
     },
     {
       title: 'Teaching Assistant CMSC250 & CMSC330 @University Of Maryland, College Park',
-      date: 'Jan 2023 - Present',
+      date: 'Jan 2023 - May 2024',
       description: 'Led engaging group discussions for a class of 35 students on Programming Languages and Discrete Structures, covering mathematical concepts and proofs, as well as programming concepts in Ocaml, Python, and Rust.',
       links: [
         { url: 'https://planetterp.com/professor/mittal_vasu', name: 'TA Reviews' }
