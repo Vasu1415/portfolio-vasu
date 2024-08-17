@@ -74,7 +74,7 @@ const RelevantCoursework = () => {
             <FaChevronDown className="ml-2" />
           </button>
           {isDropdownOpen && (
-            <ul className="absolute z-10 mt-2 w-full bg-gray-800 rounded-md shadow-lg">
+            <ul className="absolute z-10 mt-2 w-full bg-black rounded-md shadow-lg">
               {Object.keys(courses).map(semester => (
                 <li key={semester}>
                   <button
@@ -82,7 +82,7 @@ const RelevantCoursework = () => {
                       setSelectedSemester(semester);
                       setIsDropdownOpen(false);
                     }}
-                    className="block w-full py-2 px-4 text-left text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+                    className="block w-full py-2 px-4 text-left text-white hover:bg-gray-700 focus:outline-white focus:bg-gray-700"
                   >
                     {semester}
                   </button>
