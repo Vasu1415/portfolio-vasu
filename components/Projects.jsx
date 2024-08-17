@@ -5,6 +5,14 @@ import { FaExternalLinkAlt } from 'react-icons/fa'
 
 const projects = [
   {
+    name: 'PlanetTerp Data & Sentiment Exploration',
+    image: '/images/sentiment.jpg',
+    description: 'An exploration project where my group and I used machine learning to analyze the PlanetTerp dataset, featuring 26,000 entries. We leveraged Python tools like NumPy and nltk to engineer features and perform sentiment analysis, developing a model that predicts student GPAs with 73% accuracy by considering course levels and sentiment scores from reviews.',
+    githubLink: 'https://github.com/ShreenidhiAyinala/Planetterp-Course-Review-Data-Exploration-NLP-Methods',
+    skills: ['Python', 'NLP', 'Machine Learning', 'Pandas'],
+    liveDemo: 'https://shreenidhiayinala.github.io/'
+  },
+  {
     name: 'Higher or Lower Game',
     image: '/images/game.jpg',
     description: 'A game where players guess which video game has more downloads. Choose your level of difficulty with caution!',
