@@ -3,7 +3,14 @@ import React, { useState } from 'react';
 import { FaExternalLinkAlt, FaChevronDown } from 'react-icons/fa';
 
 const courses = {
-  "Spring 2024": [
+  "Fall 2024":[
+    ["CMSC422: Intro. to Machine Learning","https://planetterp.com/course/CMSC422"],
+    ["CMSC472: Intro. to Deep Learning","https://planetterp.com/course/CMSC472"],
+    ["CMSC389M: Intro. to Product Design With Figma","https://planetterp.com/course/CMSC398M"],
+    ["MATH401: Applications of Linear Algebra","https://planetterp.com/course/MATH401"],
+    ["MATH424: Intro. to the Mathematics of Finance","https://planetterp.com/course/MATH424"]
+  ]
+  ,"Spring 2024": [
     ["CMSC424: Database Design", "https://planetterp.com/course/CMSC424"],
     ["CMSC434: Human Computer Interaction", "https://planetterp.com/course/CMSC434"],
     ["CMSC388J: Python and Flask Web Dev.", "https://aspear.cs.umd.edu/388j"],
