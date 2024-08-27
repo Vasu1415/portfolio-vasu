@@ -6,7 +6,8 @@ const courses = {
   "Fall 2024":[
     ["CMSC422: Intro. to Machine Learning","https://planetterp.com/course/CMSC422"],
     ["CMSC472: Intro. to Deep Learning","https://planetterp.com/course/CMSC472"],
-    ["CMSC389M: Intro. to Product Design With Figma","https://planetterp.com/course/CMSC398M"],
+    ["CMSC389L: Intro. to Competitive Programming","https://planetterp.com/course/CMSC398L"],
+    ["CMSC398V: Intro. to React","https://app.testudo.umd.edu/soc/search?courseId=CMSC398V&sectionId=&termId=202408&_openSectionsOnly=on&creditCompare=%3E%3D&credits=0.0&courseLevelFilter=ALL&instructor=&_facetoface=on&_blended=on&_online=on&courseStartCompare=&courseStartHour=&courseStartMin=&courseStartAM=&courseEndHour=&courseEndMin=&courseEndAM=&teachingCenter=ALL&_classDay1=on&_classDay2=on&_classDay3=on&_classDay4=on&_classDay5=on"]
     ["MATH401: Applications of Linear Algebra","https://planetterp.com/course/MATH401"],
     ["MATH424: Intro. to the Mathematics of Finance","https://planetterp.com/course/MATH424"]
   ]
