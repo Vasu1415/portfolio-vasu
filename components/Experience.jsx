@@ -114,6 +114,14 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const experiences = [
   {
+    title: 'Undergraduate Research Assistant @GAMMA Lab, University of Maryland, College Park',
+    date: 'Aug 2024 - Present',
+    description: [
+      'Incoming Undergraduate Research Assistant @GAMMA Lab, University of Maryland, College Park.',
+    ],
+    links: [],
+  }
+  ,{
     title: 'Software Design Engineer Intern @Newgen Software Technologies',
     date: 'May 2024 - Aug 2024',
     description: [
@@ -126,7 +134,7 @@ const experiences = [
   },
   {
     title: 'Undergraduate Research Assistant @Shahoveisi Lab, University of Maryland, College Park',
-    date: 'May 2024 - Present',
+    date: 'May 2024 - Aug 2024',
     description: [
       'Developing a custom YOLOV8 Object Detection Model for accurate classification of plant diseases.',
       'Conducted stepwise regression analysis, achieving 82% accuracy in plant disease prediction.',
@@ -135,7 +143,7 @@ const experiences = [
   },
   {
     title: 'Web Developer @RAM CLUB, University Of Maryland, College Park',
-    date: 'Apr 2024 - Present',
+    date: 'Apr 2024 - May 2024',
     description: [
       'Collaborated with a team to redesign the UMD Robotics Club website for the ROBOSUB competition, ensuring cross-platform compatibility.',
     ],
