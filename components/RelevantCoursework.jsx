@@ -53,7 +53,7 @@ const courses = {
 };
 
 const RelevantCoursework = () => {
-  const [selectedSemester, setSelectedSemester] = useState("Spring 2024");
+  const [selectedSemester, setSelectedSemester] = useState("Fall 2024");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
