@@ -114,10 +114,18 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const experiences = [
   {
-    title: 'Undergraduate Research Assistant @GAMMA Lab, University of Maryland, College Park',
+    title: 'Frontend Engineer @Playdo.AI',
+    date: 'Sep 2024 - Present',
+    description: [
+      'Designed and Developed an interactive code editor interface using Tailwind CSS, CodeMirror, and JavaScript,enabling problem-solving and chatbot features with customizable themes, improving user experience.',
+    ],
+    links: [],
+  },
+  {
+    title: 'Undergraduate Research Assistant, University of Maryland, College Park',
     date: 'Aug 2024 - Present',
     description: [
-      'Incoming Undergraduate Research Assistant @GAMMA Lab, University of Maryland, College Park.',
+      'Designing and developing a dynamic crowd simulation testing environment using ReactJS and Tailwind CSS, engineered to evaluate and optimize agent behaviors and interactions in complex scenarios.',
     ],
     links: [],
   }

@@ -26,7 +26,7 @@ const LanguagesAndTechnologies = () => {
           </div>
           {tech.description && (
             <div className="mt-2 text-center">
-              <h2 className="text-lg text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-500 to-yellow-500 font-extrabold uppercase">
+              <h2 className="text-lg text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-yellow-500 font-extrabold uppercase">
                 {tech.description}
               </h2>
             </div>
