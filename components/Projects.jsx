@@ -25,7 +25,8 @@ const projects = [
     image: '/images/food.jpg',
     description: 'An interactive mobile web app based on HCI principles for healthy meal suggestions, recipe ingredient tracking, and collaborative meal planning.',
     githubLink: 'https://github.com/Vasu1415/Kitchen-Craft',
-    skills: ['JavaScript', 'HTML CSS']
+    skills: ['JavaScript', 'HTML CSS'],
+    liveDemo: 'https://higherorlowergame-git-main-vasu-mittals-projects-656b9b20.vercel.app/'
   },
   {
     name: 'Movie Review Database System',
