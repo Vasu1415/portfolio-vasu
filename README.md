@@ -7,4 +7,3 @@
 - Once installed, run `npm run dev` and this, will run the project for you.
 # Next Steps
 - Introduce a more formal contact system to improve experience of the user's who visit my portfolio.
-- Improve on the carousel system and potentially introduce more advanced animations for it. 
