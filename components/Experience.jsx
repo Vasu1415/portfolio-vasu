@@ -1,6 +1,8 @@
 "use client";
-import React, { useState } from 'react';
-import { FaChevronLeft, FaChevronRight, FaExternalLinkAlt } from 'react-icons/fa';
+import React from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
+import {FaExternalLinkAlt } from 'react-icons/fa';
 
 const experiences = [
   {
@@ -32,14 +34,6 @@ const experiences = [
     links: [],
   },
   {
-    title: 'Web Developer @RAM CLUB, University Of Maryland, College Park',
-    date: 'Apr 2024 - May 2024',
-    description: [
-      'Collaborated with a team to redesign the UMD Robotics Club website for the ROBOSUB competition, ensuring cross-platform compatibility.',
-    ],
-    links: [],
-  },
-  {
     title: 'Teaching Assistant CMSC250 & CMSC330 @University Of Maryland, College Park',
     date: 'Jan 2023 - May 2024',
     description: [
@@ -65,113 +59,56 @@ const experiences = [
 ];
 
 const ExperienceCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Next Slide
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === experiences.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  // Previous Slide
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? experiences.length - 1 : prevIndex - 1
-    );
-  };
-
+  const [emblaRef] = useEmblaCarousel({ loop: true, align: 'center' }, [Autoplay()]);
   return (
-    <div className="container mx-auto p-4 bg-black" id="experience">
+    <div className="container mx-auto px-4 py-8 bg-black" id="experience">
       <h2 className="text-5xl text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-500 to-yellow-500 mb-4 font-extrabold">
         Experience
       </h2>
-      <div className="relative overflow-hidden">
-        <div className="flex items-center justify-center space-x-4">
-          {/* Left Arrow */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-2 z-10 p-2 bg-transparent rounded-full text-white focus:outline-none"
-          >
-            <FaChevronLeft size={24} />
-          </button>
-
-          {/* Carousel Cards */}
-          <div className="flex space-x-6 overflow-x-auto snap-x snap-mandatory scroll-smooth">
+      <div className="embla">
+        <div className="embla__viewport relative overflow-hidden" ref={emblaRef}>
+          <div className="embla__container flex">
             {experiences.map((experience, index) => (
-              <div
-                key={index}
-                className={`${
-                  index === currentIndex ? 'block' : 'hidden'
-                } min-w-full snap-center transition-all duration-500 ease-in-out transform`}
-              >
-                <div className="flex-shrink-0 w-full lg:w-1/3 mx-auto">
-                  <div className="border border-gray-700 shadow-lg rounded-lg overflow-hidden transition-transform transform">
-                    <div className="p-6">
-                      <h3 className="text-2xl text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-500 to-yellow-500 font-extrabold mb-4">
-                        {experience.title}
-                      </h3>
-                      <p className="text-gray-400 font-semibold mb-2">
-                        {experience.date}
-                      </p>
-                      <ul className="text-gray-300 font-semibold list-disc list-inside mb-4">
-                        {experience.description.map((desc, i) => (
-                          <li key={i}>{desc}</li>
-                        ))}
-                      </ul>
-                      {experience.links && (
-                        <div className="mt-4">
-                          {experience.links.map((link, linkIndex) => (
-                            <a
-                              key={linkIndex}
-                              href={link.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-black transition duration-300 ease-out border-2 border-gray-900 rounded-full shadow-md group mb-2 block"
-                            >
-                              <span className="absolute inset-0 flex items-center justify-center w-full h-full text-black duration-300 -translate-x-full bg-white group-hover:translate-x-0 ease">
-                                <FaExternalLinkAlt className="mr-2" />
-                                {link.name}
-                              </span>
-                              <span className="absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease">
-                                <FaExternalLinkAlt className="mr-2" />
-                                {link.name}
-                              </span>
-                              <span className="relative invisible font-extrabold">
-                                {link.name}
-                              </span>
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </div>
+              <div key={index} className="embla__slide flex-none w-full">
+                <div className="slide-inner p-6 mx-auto border border-gray-800 shadow-lg rounded-lg bg-black">
+                  <h3 className="text-2xl bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-red-500 to-yellow-500 font-extrabold mb-4">
+                    {experience.title}
+                  </h3>
+                  <p className="text-white font-semibold mb-2">
+                    {experience.date}
+                  </p>
+                  <ul className="text-white font-semibold list-disc list-inside mb-4">
+                    {experience.description.map((desc, i) => (
+                      <li key={i}>{desc}</li>
+                    ))}
+                  </ul>
+                  {experience.links.map((link, linkIndex) => (
+                    <a
+                    key={linkIndex}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative inline-flex items-center justify-center p-3 px-4 py-2 overflow-hidden font-medium transition-all duration-300 ease-out border-2 border-gray-900 rounded-full shadow-md group bg-black text-white hover:bg-white"
+                  >
+                    {/* Background and text transition */}
+                    <span className="absolute inset-0 flex items-center justify-center w-full h-full text-black duration-300 -translate-x-full bg-white group-hover:translate-x-0 ease">
+                      <FaExternalLinkAlt className="mr-2" />
+                      {link.name}
+                    </span>
+                    <span className="absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease">
+                      <FaExternalLinkAlt className="mr-2" />
+                      {link.name}
+                    </span>
+                    {/* Invisible text to maintain the button size */}
+                    <span className="relative invisible">{link.name}</span>
+                  </a>
+                  
+                  ))}
                 </div>
               </div>
             ))}
           </div>
-
-          {/* Right Arrow */}
-          <button
-            onClick={nextSlide}
-            className="absolute right-2 z-10 p-2 bg-transparent rounded-full text-white hover:bg-gradient -r from-black to-slate-800 focus:outline-none"
-          >
-            <FaChevronRight size={24} />
-          </button>
         </div>
-      </div>
-
-      {/* Dots Indicators */}
-      <div className="flex justify-center mt-4">
-        {experiences.map((_, idx) => (
-          <span
-            key={idx}
-            onClick={() => setCurrentIndex(idx)}
-            className={`cursor-pointer h-3 w-3 rounded-full mx-2 transition-all duration-500 ease-in-out ${
-              currentIndex === idx ? 'bg-yellow-500' : 'bg-gray-600'
-            }`}
-          />
-        ))}
       </div>
     </div>
   );

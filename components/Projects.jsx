@@ -18,7 +18,7 @@ const projects = [
     description: 'A game where players guess which video game has more downloads. Choose your level of difficulty with caution!',
     githubLink: 'https://github.com/tomurdi/higherorlower',
     skills: ['Python', 'Flask', 'Tailwind CSS'],
-    liveDemo: 'https://higherorlowergame.vercel.app/'
+    liveDemo: 'https://higherorlowergame-vasu-mittals-projects-656b9b20.vercel.app/'
   },
   {
     name: 'Kitchen Craft',
