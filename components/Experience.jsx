@@ -4,14 +4,6 @@ import { FaChevronLeft, FaChevronRight, FaExternalLinkAlt } from 'react-icons/fa
 
 const experiences = [
   {
-    title: 'Frontend Engineer @Playdo.AI',
-    date: 'Sep 2024 - Present',
-    description: [
-      'Designed and developed an interactive code editor interface using Tailwind CSS, CodeMirror, and JavaScript, enabling problem-solving and chatbot features with customizable themes, improving user experience.',
-    ],
-    links: [],
-  },
-  {
     title: 'Undergraduate Research Assistant @University of Maryland, College Park',
     date: 'Aug 2024 - Present',
     description: [
