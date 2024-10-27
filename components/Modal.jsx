@@ -1,5 +1,7 @@
 import { FaTimes, FaExternalLinkAlt, FaStar } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { FaRegGem } from 'react-icons/fa';
+
 
 const Modal = ({ show, onClose, experience }) => {
   if (!show) return null;
@@ -27,7 +29,7 @@ const Modal = ({ show, onClose, experience }) => {
                 className="mr-3 text-yellow-400"
                 whileHover={{ scale: 1.3, color: "#fbbf24" }}
               >
-                <FaStar />
+                <FaRegGem />
               </motion.span>
               <span className="leading-relaxed">{desc}</span>
             </motion.li>
