@@ -1,10 +1,20 @@
 "use client";
 import React from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
-import {FaExternalLinkAlt } from 'react-icons/fa';
+import { useState } from 'react';
+import Modal from './Modal';
+import { FiMoreHorizontal } from 'react-icons/fi';
+
 
 const experiences = [
+  {
+    title: 'Hackathon Mentor @Technica University of Maryland, College Park',
+    date: 'Oct 2024 - Oct 2024',
+    description: [
+      'Mentored students at Technica, the world’s largest hackathon for underrepresented genders in tech, by providing expertise in Python, Java, and GitHub, ensuring smooth project development and fostering technical growth.',
+      'Contributed to the hackathon’s success by creating an inclusive and supportive environment, empowering participants to overcome challenges and achieve impactful results in their projects.'
+    ],
+    links: [],
+  },
   {
     title: 'Undergraduate Research Assistant @University of Maryland, College Park',
     date: 'Aug 2024 - Present',
@@ -58,60 +68,51 @@ const experiences = [
   },
 ];
 
-const ExperienceCarousel = () => {
-  const [emblaRef] = useEmblaCarousel({ loop: true, align: 'center' }, [Autoplay()]);
+
+const ExperienceGrid = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedExperience, setSelectedExperience] = useState(null);
+
+  const handleCardClick = (experience) => {
+    setSelectedExperience(experience);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedExperience(null);
+  };
+
   return (
-    <div className="container mx-auto px-4 py-8 bg-black" id="experience">
-      <h2 className="text-5xl text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-500 to-yellow-500 mb-4 font-extrabold">
+    <div className="container mx-auto px-4 py-8" id="experience">
+      <h2 className="text-5xl text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-500 to-yellow-500 mb-8 font-extrabold">
         Experience
       </h2>
-      <div className="embla">
-        <div className="embla__viewport relative overflow-hidden" ref={emblaRef}>
-          <div className="embla__container flex">
-            {experiences.map((experience, index) => (
-              <div key={index} className="embla__slide flex-none w-full">
-                <div className="slide-inner p-6 mx-auto border border-gray-800 shadow-lg rounded-lg bg-black">
-                  <h3 className="text-2xl bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-red-500 to-yellow-500 font-extrabold mb-4">
-                    {experience.title}
-                  </h3>
-                  <p className="text-white font-semibold mb-2">
-                    {experience.date}
-                  </p>
-                  <ul className="text-white font-semibold list-disc list-inside mb-4">
-                    {experience.description.map((desc, i) => (
-                      <li key={i}>{desc}</li>
-                    ))}
-                  </ul>
-                  {experience.links.map((link, linkIndex) => (
-                    <a
-                    key={linkIndex}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative inline-flex items-center justify-center p-3 px-4 py-2 overflow-hidden font-medium transition-all duration-300 ease-out border-2 border-gray-900 rounded-full shadow-md group bg-black text-white hover:bg-white"
-                  >
-                    {/* Background and text transition */}
-                    <span className="absolute inset-0 flex items-center justify-center w-full h-full text-black duration-300 -translate-x-full bg-white group-hover:translate-x-0 ease">
-                      <FaExternalLinkAlt className="mr-2" />
-                      {link.name}
-                    </span>
-                    <span className="absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease">
-                      <FaExternalLinkAlt className="mr-2" />
-                      {link.name}
-                    </span>
-                    {/* Invisible text to maintain the button size */}
-                    <span className="relative invisible">{link.name}</span>
-                  </a>
-                  
-                  ))}
-                </div>
-              </div>
-            ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {experiences.map((experience, index) => (
+          <div
+            key={index}
+            className="relative p-6 bg-black border border-gray-800 rounded-lg shadow-lg transition-all duration-300"
+          >
+            <h3 className="text-xl font-bold text-white mb-2">{experience.title}</h3>
+            <p className="text-gray-400">{experience.date}</p>
+
+            {/* Read More button to open modal */}
+            <button
+              onClick={() => handleCardClick(experience)}
+              className="flex items-center mt-4 text-blue-400 hover:text-blue-200 transition-colors"
+            >
+              <FiMoreHorizontal className="mr-1" />
+              <span>Read More</span>
+            </button>
           </div>
-        </div>
+        ))}
       </div>
+
+      {/* Modal Component */}
+      <Modal show={showModal} onClose={handleCloseModal} experience={selectedExperience} />
     </div>
   );
 };
 
-export default ExperienceCarousel;
+export default ExperienceGrid;
