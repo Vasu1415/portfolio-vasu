@@ -26,7 +26,7 @@ const Modal = ({ show, onClose, experience }) => {
               transition={{ delay: i * 0.1 }}
             >
               <motion.span
-                className="mr-3 text-yellow-400"
+                className="mr-3 text-red-500"
                 whileHover={{ scale: 1.3, color: "#fbbf24" }}
               >
                 <FaRegGem />
