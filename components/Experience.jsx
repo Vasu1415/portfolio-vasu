@@ -1,9 +1,8 @@
 "use client";
 import React from 'react';
 import { useState } from 'react';
-import Modal from './Modal';
 import { FiMoreHorizontal } from 'react-icons/fi';
-
+import ExperienceModal from './ExperienceModal';
 
 const experiences = [
   {
@@ -97,20 +96,17 @@ const ExperienceGrid = () => {
             <h3 className="text-xl font-bold text-white mb-2">{experience.title}</h3>
             <p className="text-gray-400">{experience.date}</p>
 
-            {/* Read More button to open modal */}
             <button
               onClick={() => handleCardClick(experience)}
               className="flex items-center mt-4 text-blue-400 hover:text-blue-200 transition-colors"
             >
               <FiMoreHorizontal className="mr-1" />
-              <span>Read More</span>
+              <span className='font-extrabold '>Read More</span>
             </button>
           </div>
         ))}
       </div>
-
-      {/* Modal Component */}
-      <Modal show={showModal} onClose={handleCloseModal} experience={selectedExperience} />
+      <ExperienceModal show={showModal} onClose={handleCloseModal} experience={selectedExperience} />
     </div>
   );
 };

@@ -1,9 +1,9 @@
-import { FaTimes, FaExternalLinkAlt, FaStar } from 'react-icons/fa';
+import { FaTimes, FaExternalLinkAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { FaRegGem } from 'react-icons/fa';
 
 
-const Modal = ({ show, onClose, experience }) => {
+const ExperienceModal = ({ show, onClose, experience }) => {
   if (!show) return null;
 
   return (
@@ -60,4 +60,4 @@ const Modal = ({ show, onClose, experience }) => {
   );
 };
 
-export default Modal;
+export default ExperienceModal;

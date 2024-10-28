@@ -3,7 +3,7 @@ import HeroSection from "../components/HeroSection";
 import NavBar from "../components/NavBar";
 import Projects from "../components/Projects";
 import Experience from "../components/Experience";
-import RelevantCoursework from "../components/RelevantCoursework";
+import RelevantCoursework from "@/components/RelevantCoursework";
 import ParticleBackground from "@/components/ParticleBackground";
 export default function Home() {
   return (
