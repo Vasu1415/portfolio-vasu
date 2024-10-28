@@ -1,11 +1,20 @@
-import React from 'react'
-import Image from 'next/image'
-import { FaGithub } from 'react-icons/fa'
-import { FaExternalLinkAlt } from 'react-icons/fa'
+"use client";
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+
 
 const projects = [
   {
-    name: 'PlanetTerp Data & Sentiment Exploration',
+    name: 'Interview Sim',
+    image: '/images/interview.jpg',
+    description: 'Developed an online code editor with a timer, supporting multiple languages and real-time code execution to improve interview preparation and simulate mock interview scenarios.',
+    githubLink: 'https://github.com/Vasu1415/mock-interview-interface',
+    skills: ['TypeScript', 'Next.JS', 'Tailwind CSS', 'API'],
+    liveDemo: 'https://mock-interview-interface.vercel.app/'
+  },
+  {
+    name: 'PlanetTerp Sentiment Explorer',
     image: '/images/sentiment.jpg',
     description: 'An exploration project where my group and I used machine learning to analyze the PlanetTerp dataset, featuring 26,000 entries. We leveraged Python tools like NumPy and nltk to engineer features and perform sentiment analysis, developing a model that predicts student GPAs with 73% accuracy by considering course levels and sentiment scores from reviews.',
     githubLink: 'https://github.com/ShreenidhiAyinala/Planetterp-Course-Review-Data-Exploration-NLP-Methods',
@@ -28,7 +37,7 @@ const projects = [
     skills: ['JavaScript', 'HTML CSS'],
   },
   {
-    name: 'Movie Review Database System',
+    name: 'Movie Review Database',
     image: '/images/movie.jpg',
     description: 'A web-based movie review platform where users can securely create accounts, add personal reviews, and engage with community feedback on various films.',
     githubLink: 'https://github.com/Vasu1415/Movie-Database-Review-System',
@@ -36,61 +45,60 @@ const projects = [
   },
 ]
 
-const Projects = () => {
+const SpotlightFocusProjects = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % projects.length);
+    }, 15000); 
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="container mx-auto p-4 bg-black" id='projects'>
-      <h2 className="text-5xl text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-500 to-yellow-500 mb-4 font-extrabold">Projects</h2>
-      <p className="text-base font-semibold lg:text-lg text-gray-300 mb-8">
-        Here are some of the projects I&apos;ve worked on. I hope you find them as interesting and engaging as I did!      
-     </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project, index) => (
-          <div key={index} className="border border-gray-700 shadow-lg rounded-lg overflow-hidden mb-8 transition-transform transform">
-            <div className="relative">
-              <Image 
-                src={project.image} 
-                alt={project.name} 
-                width={500} 
-                height={200} 
-                className="w-full h-48 object-cover" 
-              />
-              <div className="p-6">
-                <h2 className="text-2xl text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-500 to-yellow-500 mb-4 font-extrabold">{project.name}</h2>
-                <p className="text-gray-300 mb-4 font-semibold">{project.description}</p>
-                <div className="mb-4">
-                  {project.skills.map((skill, skillIndex) => (
-                    <span 
-                      key={skillIndex} 
-                      className="inline-block bg-white border border-white text-black font-semibold uppercase text-sm px-3 py-1 rounded-full mr-2 mb-2 transition transform">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex justify-between items-center mt-4">
-                  <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-100 transition-transform transform hover:scale-110">
-                    <FaGithub size={24} />
-                  </a>
-                  {project.liveDemo && (
-                    <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-black transition duration-300 ease-out border-2 border-gray-900 rounded-full shadow-md group">
-                      <span className="absolute inset-0 flex items-center justify-center w-full h-full text-black duration-300 -translate-x-full bg-white group-hover:translate-x-0 ease">
-                        <FaExternalLinkAlt className="mr-2" />
-                        Live Demo
-                      </span>
-                      <span className="absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease">
-                        <FaExternalLinkAlt className="mr-2" />
-                        Live Demo
-                      </span>
-                      <span className="relative invisible font-extrabold">Live Demo</span>
-                    </a>
-                  )}
-                </div>
-              </div>
-            </div>
+    <div className="container mx-auto p-8 bg-black text-white min-h-screen flex flex-col items-center" id="projects">
+      <h2 className="text-5xl text-center bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-red-500 to-yellow-500 font-extrabold mb-12">Projects</h2>
+      <div className="relative w-full max-w-5xl flex flex-col lg:flex-row items-center lg:items-start">        
+        <div className="w-full lg:w-1/2 flex justify-center">
+          <Image
+            src={projects[activeIndex].image}
+            alt={projects[activeIndex].name}
+            width={500}
+            height={300}
+            className="rounded-lg shadow-lg"
+          />
+        </div>
+        
+        {/* Project Details */}
+        <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:ml-8 text-center lg:text-left">
+          <h3 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-red-500 to-yellow-500">
+            {projects[activeIndex].name}
+          </h3>
+          <p className="text-gray-300 mb-4 bg-black bg-opacity-70 px-4 py-2 rounded-md">
+            {projects[activeIndex].description}
+          </p>
+          <div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-4">
+            {projects[activeIndex].skills.map((skill, skillIndex) => (
+              <span key={skillIndex} className="bg-white text-black font-semibold text-sm px-3 py-1 rounded-full">
+                {skill}
+              </span>
+            ))}
           </div>
-        ))}
+          <div className="flex justify-center lg:justify-start space-x-4">
+            {projects[activeIndex].githubLink && (
+              <a href={projects[activeIndex].githubLink} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
+                <FaGithub size={24} />
+              </a>
+            )}
+            {projects[activeIndex].liveDemo && (
+              <a href={projects[activeIndex].liveDemo} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
+                <FaExternalLinkAlt size={24} />
+              </a>
+            )}
+          </div>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Projects
+export default SpotlightFocusProjects;
