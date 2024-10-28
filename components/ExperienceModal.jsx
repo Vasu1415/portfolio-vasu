@@ -10,7 +10,7 @@ const ExperienceModal = ({ show, onClose, experience }) => {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
       <div className="relative max-w-lg p-6 bg-slate-950 bg-opacity-90 rounded-xl shadow-lg border border-gray-700 transform transition-all duration-300 scale-100">
         <button
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-100 transition"
+          className="absolute top-4 right-4 text-red-500 hover:text-red-600 transition"
           onClick={onClose}
         >
           <FaTimes size={20} />
