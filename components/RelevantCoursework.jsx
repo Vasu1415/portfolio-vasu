@@ -177,7 +177,6 @@ const courses = [
     topics: [
       { name: 'Ocaml Notes ', link: ' https://share.goodnotes.com/s/WXJKI3HloO4xIZBksp64W0' },
       { name: 'Finite State Machines', link: 'https://share.goodnotes.com/s/fIyX9fMlFeKaXBYrY5Sgv8' },
-      { name: 'Ammortization', link: 'https://share.goodnotes.com/s/qTJWe47adBNmEnk5AEY02p' },
       { name: 'Operational Semantics', link: 'https://share.goodnotes.com/s/yPx7jtsIez9h7BcUHgiFxN' },
       { name: 'Lambda Calculus', link: 'https://share.goodnotes.com/s/TGmuGY1g52DduiPNZdmD31' },
       { name: 'Rust', link: 'https://share.goodnotes.com/s/noCbXwfpEkqiboxMhnpJ0J' },
