@@ -93,8 +93,8 @@ const ExperienceGrid = () => {
             key={index}
             className="relative p-6 bg-black border border-gray-800 rounded-lg shadow-lg transition-all duration-300"
           >
-            <h3 className="text-xl font-bold text-white mb-2">{experience.title}</h3>
-            <p className="text-gray-400">{experience.date}</p>
+            <h3 className="text-xl font-extrabold text-white mb-2">{experience.title}</h3>
+            <p className="text-gray-400 font-extrabold">{experience.date}</p>
 
             <button
               onClick={() => handleCardClick(experience)}

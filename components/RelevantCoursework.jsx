@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import {FaChevronDown, FaExternalLinkAlt, FaStickyNote} from 'react-icons/fa';
+import {FaChevronDown, FaStickyNote} from 'react-icons/fa';
 import RelevantCourseworkModal from './RelevantCourseworkModal'
 
 const courses = [
