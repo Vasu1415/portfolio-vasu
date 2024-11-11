@@ -5,25 +5,33 @@ const RelevantCourseworkModal = ({ show, onClose, course }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
-      <div className="relative max-w-lg p-6 bg-transparent rounded-lg shadow-lg">
+      <div className="relative max-w-lg p-8 bg-slate-950 rounded-lg shadow-lg border">
+        {/* Close button */}
         <button
-          className="absolute top-4 right-4 text-red-600 hover:text-red-700"
+          className="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition duration-150 ease-in-out"
           onClick={onClose}
         >
-          <FaTimes size={20} />
+          <FaTimes size={24} />
         </button>
 
-        <h3 className="text-2xl font-extrabold text-white mb-4">{course.courseName}</h3>
+        {/* Course Name */}
+        <h3 className="text-3xl font-bold text-white mb-6 border-b border-gray-600 pb-2">
+          {course.courseName}
+        </h3>
 
-        <ul className="space-y-3">
+        {/* Topics List */}
+        <ul className="space-y-4">
           {course.topics.map((topic, index) => (
-            <li key={index} className="flex items-center">
-              <FaStickyNote className="text-yellow-500 mr-2" />
+            <li
+              key={index}
+              className="flex items-center p-3 rounded-md bg-gray-700 hover:bg-gray-600 transition duration-150 ease-in-out"
+            >
+              <FaStickyNote className="text-yellow-400 mr-3" />
               <a
                 href={topic.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-500 hover:underline hover:text-blue-600 font-extrabold transition"
+                className="text-blue-400 hover:text-blue-300 font-semibold transition"
               >
                 {topic.name}
               </a>
