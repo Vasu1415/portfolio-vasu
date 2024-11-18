@@ -54,7 +54,8 @@ const courses = [
       {name: 'Brownian Motion', link:'https://share.goodnotes.com/s/3RyXehZTxJoA5QGs1Jx2bZ'},
       {name: 'Interest Rates & Present Value Analysis', link:'https://share.goodnotes.com/s/9MaauYZhlnbdxlNeVnxTRG'},
       {name: 'Price Contracts via Arbitrage', link:'https://share.goodnotes.com/s/exP7v3VsKfENxuZQlMaKFs'},
-      {name: 'The Arbitrage Theorem', link:'https://share.goodnotes.com/s/ci1MTJjfokU71XGUrc7bkH'}
+      {name: 'The Arbitrage Theorem', link:'https://share.goodnotes.com/s/ci1MTJjfokU71XGUrc7bkH'},
+      {name: 'Black Scholes Formula', link:'https://share.goodnotes.com/s/TJF8YmqnldxSEKjI4KJjqu'}
     ],
   },
   {
