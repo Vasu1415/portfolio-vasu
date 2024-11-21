@@ -43,6 +43,11 @@ const courses = [
       {name: 'Single Value Decomposition', link:'https://share.goodnotes.com/s/0BvDc3dzOJbgyE1OuHBwVy'},
       {name: 'Matrix Approximation', link:'https://share.goodnotes.com/s/CchjAEduOPbbcl8dy66EcA'},
       {name: 'Image Compression', link:'https://share.goodnotes.com/s/FKOW91E5iFBCkhzm4C3yJD'},
+      {name: 'Discrete Dynamic Systems', link:'https://share.goodnotes.com/s/iRzxxTCdOYyABEQ30dP9zy'},
+      {name: 'Modular Arithmetic', link:'https://share.goodnotes.com/s/dwtWaqObgpF4m3cnUwrhgw'},
+      {name: 'Differential Equations', link:'https://share.goodnotes.com/s/1iNx8fS87WxrLs8iozM8Qs'},
+      {name: 'Cryptography', link:'https://share.goodnotes.com/s/Llg2rT7XI4yoUWUucUryEa'},
+      {name: 'Advanced Cryptography', link:'https://share.goodnotes.com/s/urHzjvOX2D5atevDQojG6x'},
     ],
   },
   {
