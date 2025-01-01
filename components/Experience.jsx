@@ -6,6 +6,15 @@ import ExperienceModal from './ExperienceModal';
 
 const experiences = [
   {
+    title: 'Data Science Intern @Tyloones Software Private Limited',
+    date: 'Dec 2024 - Present',
+    description: [
+      'Developed secure and robust APIs in Django to improve user onboarding flow and streamline backend processes.',
+      'Integrated Firebase and Azure for authentication and database management to support production-scale applications.'
+    ],
+    links: [],
+  },
+  {
     title: 'Hackathon Mentor @Technica University of Maryland, College Park',
     date: 'Oct 2024 - Oct 2024',
     description: [

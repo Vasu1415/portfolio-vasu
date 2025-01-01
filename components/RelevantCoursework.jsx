@@ -25,6 +25,10 @@ const courses = [
       { name: 'Optimization Basics', link: 'https://share.goodnotes.com/s/5XpdfmJncescG1n4Z8MiIa' },
       { name: 'Optimization Advanced', link: 'https://share.goodnotes.com/s/xv9dRiNjBHivZ9ELiKtdbI' },
       { name: 'BackPropagation', link: 'https://share.goodnotes.com/s/zDmO1Gg16ta6EoVfMpG4gU' },
+      {name: 'Convolutional Neural Networks & Architectures', link: 'https://share.goodnotes.com/s/q9JtVnGT8hIxoUVP96g4rE'},
+      {name: 'Object Detection', link: 'https://share.goodnotes.com/s/zb2xLWI3KI0N28lSFeMk7j'},
+      {name: 'Semantic Segmentation', link:'https://share.goodnotes.com/s/8Xb5uXUcPrm0OKfuKEqEXe'},
+      {name: 'Recurrent Neural Networks', link:'https://share.goodnotes.com/s/sJAeYyNR4uJFaPYmxdKxd1'}
     ],
   },
   {
@@ -48,6 +52,8 @@ const courses = [
       {name: 'Differential Equations', link:'https://share.goodnotes.com/s/1iNx8fS87WxrLs8iozM8Qs'},
       {name: 'Cryptography', link:'https://share.goodnotes.com/s/Llg2rT7XI4yoUWUucUryEa'},
       {name: 'Advanced Cryptography', link:'https://share.goodnotes.com/s/urHzjvOX2D5atevDQojG6x'},
+      {name: 'Lattice & NTRU', link:'https://share.goodnotes.com/s/kFYKtBOh5qutryGOE8wrci'},
+      {name: 'Quantum Vulnerability', link: 'https://share.goodnotes.com/s/ANyefyWQZVnrIBkBGtpVbv'}
     ],
   },
   {

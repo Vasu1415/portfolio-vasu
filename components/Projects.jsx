@@ -4,6 +4,16 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const projects = [
   {
+    name: "Deep Learning Genre Classification & Music Recommendation System",
+    image: "/images/music.jpg",
+    date: "2024-12",
+    description:
+      "Achieved 84.32% accuracy in music genre classification by designing and developing a custom deep learning CNN architecture, resulting in an improved music recommendation system that provides personalized recommendations.",
+    githubLink: "",
+    skills: ["Python", "Flask", "Tailwind CSS", "AWS DynamoDB", "React.JS"],
+    liveDemo: "",
+  },
+  {
     name: "Interview Sim",
     image: "/images/interview.jpg",
     date: "2024-08",
