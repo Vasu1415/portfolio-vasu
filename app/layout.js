@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Head from "next/head"; 
+import React from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,15 +11,25 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  React.useEffect(() => {
+    var _mtm = (window._mtm = window._mtm || []);
+    _mtm.push({ "mtm.startTime": new Date().getTime(), event: "mtm.Start" });
+    var d = document,
+      g = d.createElement("script"),
+      s = d.getElementsByTagName("script")[0];
+    g.async = true;
+    g.src = "https://cdn.matomo.cloud/portfoliovasumittalvercelapp.matomo.cloud/container_SUFKW7Gx.js";
+    s.parentNode.insertBefore(g, s);
+  }, []);
+
   return (
     <html lang="en">
       <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
-        <link rel="icon" href="/app/favicon.ico"/>
+        <link rel="icon" href="/app/favicon.ico" />
       </Head>
       <body className={inter.className}>{children}</body>
     </html>
   );
 }
-
