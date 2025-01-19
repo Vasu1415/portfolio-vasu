@@ -4,12 +4,22 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const projects = [
   {
+    name: "StudyBuddy.io",
+    image: "/images/studybuddy.png",
+    date: "2025-01",
+    description:
+      "AI driven platform that uses a custom token classification model and advanced LLMs to extract and evaluate exam responses, delivering personalized feedback on strengths, weaknesses, and tracks user progress.",
+    githubLink: "https://github.com/Vasu1415/StudyBuddy.io",
+    skills: ["Python", "Flask", "Tailwind CSS", "PostgreSQL", "React.JS", "Docker","Machine Learning","LLMs","API"],
+    liveDemo: "",
+  },
+  {
     name: "Deep Learning Genre Classification & Music Recommendation System",
     image: "/images/music.jpg",
     date: "2024-12",
     description:
       "Achieved 84.32% accuracy in music genre classification by designing and developing a custom deep learning CNN architecture, resulting in an improved music recommendation system that provides personalized recommendations.",
-    githubLink: "",
+    githubLink: "https://github.com/Vasu1415/ResearchWebpage",
     skills: ["Python", "Flask", "Tailwind CSS", "AWS DynamoDB", "React.JS"],
     liveDemo: "",
   },

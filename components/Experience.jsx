@@ -9,8 +9,8 @@ const experiences = [
     title: 'Data Science Intern @Tyloones Software Private Limited',
     date: 'Dec 2024 - Present',
     description: [
-      'Developed secure and robust APIs in Django to improve user onboarding flow and streamline backend processes.',
-      'Integrated Firebase and Azure for authentication and database management to support production-scale applications.'
+      'Designing an event-driven AI-powered chat support system to securely connect users with back-office teams, ensuring seamless assistance for user queries and support needs.',
+      'Optimized user onboarding flow by implementing secure Django APIs and integrating Firebase and Azure OAuth services, delivering a seamless user experience and significantly reducing onboarding time.'
     ],
     links: [],
   },
