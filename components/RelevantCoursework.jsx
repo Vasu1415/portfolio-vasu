@@ -5,6 +5,16 @@ import RelevantCourseworkModal from './RelevantCourseworkModal'
 
 const courses = [
   {
+    semester: 'Spring 2025',
+    course: 'MATH423: Linear Optimization',
+    topics: [],
+  },
+  {
+    semester: 'Spring 2025',
+    course: 'STAT401: Applied Probability and Statistics II',
+    topics: [],
+  },
+  {
     semester: 'Fall 2024',
     course: 'CMSC422: Intro. to Machine Learning',
     topics: [
@@ -282,7 +292,7 @@ const groupCoursesBySemester = (coursesArray) => {
 const groupedCourses = groupCoursesBySemester(courses);
 
 const RelevantCoursework = () => {
-  const [selectedSemester, setSelectedSemester] = useState("Fall 2024");
+  const [selectedSemester, setSelectedSemester] = useState(Object.keys(groupedCourses)[0] || "Spring 2025");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
 

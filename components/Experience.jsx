@@ -6,11 +6,20 @@ import ExperienceModal from './ExperienceModal';
 
 const experiences = [
   {
-    title: 'Data Science Intern @Tyloones Software Private Limited',
-    date: 'Dec 2024 - Present',
+    title: 'Software Engineering Intern @JuumeAI',
+    date: 'Feb 2025 - Present',
     description: [
-      'Designing an event-driven AI-powered chat support system to securely connect users with back-office teams, ensuring seamless assistance for user queries and support needs.',
-      'Optimized user onboarding flow by implementing secure Django APIs and integrating Firebase and Azure OAuth services, delivering a seamless user experience and significantly reducing onboarding time.'
+      'Incoming SWE Intern @JuumeAI',
+    ],
+    links: [],
+  },
+  {
+    title: 'Software Engineering Intern @Tyloones Software Private Limited',
+    date: 'Dec 2024 - Jan 2025',
+    description: [
+      'Designed an optimized and secure architecture for chat support system to connect users with back-office teams, ensuring seamless assistance for user queries and support needs.',
+      'Developed an admin dashboard for hospital clinics, enabling management of doctors, and appointments, with VAPI voice agents automating inbound and outbound patient calls to reduce manual workloads.',
+      'Optimized user onboarding by implementing secure Django REST APIs, CRUD operations, and integrating Firebase and Azure OAuth, improving efficiency and reducing onboarding time.'
     ],
     links: [],
   },
