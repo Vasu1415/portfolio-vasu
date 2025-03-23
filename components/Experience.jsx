@@ -9,9 +9,10 @@ const experiences = [
     title: 'Software Engineering Intern @JuumeAI',
     date: 'Feb 2025 - Present',
     description: [
-      'Incoming SWE Intern @JuumeAI',
+      'Developed an interactive dashboard module using Go, React, and Tailwind CSS for monitoring tasks, alerts, and compliance metrics.',
+      'Designed JuumeAI’s website with ReactJS and TailwindCSS to enhance online presence and user engagement.'
     ],
-    links: [],
+    links: ["https://juume.ai/"],
   },
   {
     title: 'Software Engineering Intern @Tyloones Software Private Limited',
