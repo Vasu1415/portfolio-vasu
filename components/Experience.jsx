@@ -12,7 +12,7 @@ const experiences = [
       'Developed an interactive dashboard module using Go, React, and Tailwind CSS for monitoring tasks, alerts, and compliance metrics.',
       'Designed JuumeAI’s website with ReactJS and TailwindCSS to enhance online presence and user engagement.'
     ],
-    links: ["https://juume.ai/"],
+    links: [{url: "https://juume.ai/", name: 'JuumeAI Website'}],
   },
   {
     title: 'Software Engineering Intern @Tyloones Software Private Limited',
