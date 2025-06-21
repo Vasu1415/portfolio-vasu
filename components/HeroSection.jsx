@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { TypeAnimation } from 'react-type-animation';
-import { FaLinkedin, FaGithub, FaDownload, FaEnvelope, FaExternalLinkAlt } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope, FaExternalLinkAlt } from "react-icons/fa";
 
 const HeroSection = () => {
     return (

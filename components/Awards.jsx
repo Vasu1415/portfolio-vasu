@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 const awards = [
-  ["Dean's List (Fall 2021 - Present)", "/images/umd.png", "https://ischool.umd.edu/academics/bachelors-programs/deans-list/#:~:text=Dean's%20List%20is%20awarded%20to,GPA%20of%203.5%20or%20higher."], 
+  ["Dean's List (Fall 2021 - Spring 2025)", "/images/umd.png", "https://ischool.umd.edu/academics/bachelors-programs/deans-list/#:~:text=Dean's%20List%20is%20awarded%20to,GPA%20of%203.5%20or%20higher."], 
   ["OMSE Academic Excellence Award", "/images/umd.png", "https://omse.umd.edu/academy-of-academic-excellence-awards/#:~:text=The%20Academy%20of%20Academic%20Excellence,Students%20with%20cumulative%203.5%2B%20GPA"],
   ["Distinction in Euclid Mathematics Contest", "/images/uow.png", "https://www.cemc.uwaterloo.ca/contests/euclid.html"]
 ];
