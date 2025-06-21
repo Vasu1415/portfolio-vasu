@@ -6,11 +6,20 @@ import ExperienceModal from './ExperienceModal';
 
 const experiences = [
   {
-    title: 'Software Engineering Intern @JuumeAI',
-    date: 'Feb 2025 - Present',
+    title: 'Junior FullStack Software Engineer @JuumeAI',
+    date: 'May 2025 - Present',
     description: [
-      'Developed an interactive dashboard module using Go, React, and Tailwind CSS for monitoring tasks, alerts, and compliance metrics.',
-      'Designed JuumeAI’s website with ReactJS and TailwindCSS to enhance online presence and user engagement.'
+      'Implemented a secure OAuth 2.0 PKCE login flow in Go (Gin), pulling client credentials on-demand from Google Secret Manager and hardening the authentication layer against token forgery attacks.',
+    ],
+    links: [{url: "https://juume.ai/", name: 'JuumeAI Website'}],
+  },{
+    title: 'Software Engineering Intern @JuumeAI',
+    date: 'Feb 2025 - May 2025',
+    description: [
+      'Optimized database query performance by implementing indexing on frequently accessed tables and ensured application security by using prepared statements to prevent SQL injection attacks.',
+      'Integrated unit tests and dynamic dockerized container testing for more robust testing of REST APIs and codebase.',
+      'Architected and developed a modular compliance dashboard with a fully normalized database schema enabling users to track tasks, and risk/compliance metrics through LLM-evaluated questionnaires and dynamic visualizations.',
+      'Designed an interactive and responsive customer oriented website using ReactJS and TailwindCSS to improve engagement and company visibility by over 90% in a single month.'
     ],
     links: [{url: "https://juume.ai/", name: 'JuumeAI Website'}],
   },
