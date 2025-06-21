@@ -11,7 +11,7 @@ const experiences = [
     description: [
       'Implemented a secure OAuth 2.0 PKCE login flow in Go (Gin), pulling client credentials on-demand from Google Secret Manager and hardening the authentication layer against token forgery attacks.',
     ],
-    links: [{url: "https://juume.ai/", name: 'JuumeAI Website'}],
+    links: [],
   },{
     title: 'Software Engineering Intern @JuumeAI',
     date: 'Feb 2025 - May 2025',
