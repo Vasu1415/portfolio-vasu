@@ -38,7 +38,11 @@ const AboutMeSection = () => {
       <div className="container mx-auto">
         <h2 className="text-5xl text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-500 to-yellow-500 mb-4 font-extrabold">About Me</h2>
         <p className="text-base font-semibold lg:text-lg">
-          I’m Vasu Mittal, a recent Computer Science graduate from the University of Maryland with hands-on experience in full-stack development, backend systems, and machine learning.  I’m passionate about building scalable, efficient, and intelligent software and am always looking for opportunities to learn and make meaningful impact.
+          Hey, I’m Vasu 👋
+
+          I’m a software engineer who enjoys building thoughtful, user-focused products. Over the past few years, I’ve worked at startups and research labs, gaining hands-on experience across a range of domains.
+
+          I’ve worked across the stack with tools like React, Go, FastAPI, and Python, always aiming to build clean, scalable solutions. I’m driven by curiosity, enjoy tackling complex problems, and am always looking for ways to learn, grow, and make a meaningful impact.
         </p>
         <div className="flex flex-row justify-center mt-8 space-x-4">
           {TAB_DATA.map((tabData) => (
