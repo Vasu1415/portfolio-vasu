@@ -192,7 +192,7 @@ const RelevantCoursework = () => {
 
   return (
     <section className="py-24">
-      <div className="container max-w-5xl mx-auto px-4">
+      <div className="container max-w-5xl mx-auto px-4 min-h-screen">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-extrabold mb-4">
             <span className="inline-block px-4 py-1 bg-transparent text-black dark:text-white">

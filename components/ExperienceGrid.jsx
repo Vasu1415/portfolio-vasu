@@ -85,59 +85,61 @@ const ExperienceGrid = () => {
   const closeModal = () => setSelectedExperience(null);
 
   return (
-    <section id="experience" className="container mx-auto px-4 py-24">
-      <header className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-black dark:text-white">Experience</h2>
-      </header>
+    <section id="experience" className="container min-h-screen mx-auto px-4 py-24">
+      <div className='max-h-7xl mx-auto'>
+        <header className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-black dark:text-white">Experience</h2>
+        </header>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {experiences.map((exp, index) => {
-          const [role, company] = exp.title.includes('@')
-            ? exp.title.split('@').map((s) => s.trim())
-            : [exp.title, ''];
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {experiences.map((exp, index) => {
+            const [role, company] = exp.title.includes('@')
+              ? exp.title.split('@').map((s) => s.trim())
+              : [exp.title, ''];
 
-          return (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              onClick={() => openModal(exp)}
-              className="cursor-pointer rounded-xl bg-white/10 dark:bg-white/5 backdrop-blur border border-black/10 dark:border-white/10 p-6 transition hover:scale-[1.02] hover:shadow-lg"
-            >
-              {/* Header info */}
-              <div className="flex items-center gap-4 mb-2">
-                {exp.logo ? (
-                  <div className="w-16 h-10 relative">
-                    <Image
-                      src={exp.logo}
-                      alt={exp.title}
-                      fill
-                      className="object-contain rounded"
-                    />
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                onClick={() => openModal(exp)}
+                className="cursor-pointer rounded-xl bg-white/10 dark:bg-white/5 backdrop-blur border border-black/10 dark:border-white/10 p-6 transition hover:scale-[1.02] hover:shadow-lg"
+              >
+                {/* Header info */}
+                <div className="flex items-center gap-4 mb-2">
+                  {exp.logo ? (
+                    <div className="w-16 h-10 relative">
+                      <Image
+                        src={exp.logo}
+                        alt={exp.title}
+                        fill
+                        className="object-contain rounded"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-16 h-10 bg-white/20 rounded-md" />
+                  )}
+                  <div>
+                    <h3 className="text-lg font-semibold text-black dark:text-white">{role}</h3>
+                    <p className="text-xs font-semibold uppercase text-black/50 dark:text-white/50 tracking-wide">{company}</p>
+                    <p className="text-xs font-semibold text-black/40 dark:text-white/40 mt-1">{exp.date}</p>
                   </div>
-                ) : (
-                  <div className="w-16 h-10 bg-white/20 rounded-md" />
-                )}
-                <div>
-                  <h3 className="text-lg font-semibold text-black dark:text-white">{role}</h3>
-                  <p className="text-xs font-semibold uppercase text-black/50 dark:text-white/50 tracking-wide">{company}</p>
-                  <p className="text-xs font-semibold text-black/40 dark:text-white/40 mt-1">{exp.date}</p>
                 </div>
-              </div>
 
-              {/* Read More Tease */}
-              <p className="mt-4 text-sm text-black/50 dark:text-white/40 italic font-semibold">...Read more</p>
-            </motion.div>
-          );
-        })}
+                {/* Read More Tease */}
+                <p className="mt-4 text-sm text-black/50 dark:text-white/40 italic font-semibold">...Read more</p>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        <ExperienceModal
+          show={!!selectedExperience}
+          onClose={closeModal}
+          experience={selectedExperience}
+        />
       </div>
-
-      <ExperienceModal
-        show={!!selectedExperience}
-        onClose={closeModal}
-        experience={selectedExperience}
-      />
     </section>
   );
 };
