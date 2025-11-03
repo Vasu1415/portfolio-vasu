@@ -1,22 +1,15 @@
 "use client";
-import React, { useState } from 'react';
-import {FaChevronDown, FaStickyNote} from 'react-icons/fa';
-import RelevantCourseworkModal from './RelevantCourseworkModal'
+import React, { useState, useMemo } from 'react';
+import { FaChalkboardTeacher } from 'react-icons/fa';
+import CourseCard from './CourseCard';
+import CourseFilters from './CourseFilters';
+import RelevantCourseworkModal from './RelevantCourseworkModal';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const courses = [
   {
-    semester: 'Spring 2025',
-    course: 'MATH423: Linear Optimization',
-    topics: [],
-  },
-  {
-    semester: 'Spring 2025',
-    course: 'STAT401: Applied Probability and Statistics II',
-    topics: [],
-  },
-  {
     semester: 'Fall 2024',
-    course: 'CMSC422: Intro. to Machine Learning',
+    course: 'CMSC422: Introduction to Machine Learning',
     topics: [
       { name: 'Introduction', link: 'https://share.goodnotes.com/s/iLDagM6aqZh6s6B1A53Pxn' },
       { name: 'Decision Trees', link: 'https://share.goodnotes.com/s/LrpQKKfCR4sbrHBre6jDuE' },
@@ -27,7 +20,7 @@ const courses = [
   },
   {
     semester: 'Fall 2024',
-    course: 'CMSC472: Intro. to Deep Learning',
+    course: 'CMSC472: Introduction to Deep Learning',
     topics: [
       { name: 'Statistical Learning & Learning Paradigms', link: 'https://share.goodnotes.com/s/aNiRDdPwjMttkTDZBdTKNW' },
       { name: 'Neural Networks', link: 'https://share.goodnotes.com/s/HpfPc884A6k7o8lIEdBRme' },
@@ -39,44 +32,6 @@ const courses = [
       {name: 'Object Detection', link: 'https://share.goodnotes.com/s/zb2xLWI3KI0N28lSFeMk7j'},
       {name: 'Semantic Segmentation', link:'https://share.goodnotes.com/s/8Xb5uXUcPrm0OKfuKEqEXe'},
       {name: 'Recurrent Neural Networks', link:'https://share.goodnotes.com/s/sJAeYyNR4uJFaPYmxdKxd1'}
-    ],
-  },
-  {
-    semester: 'Fall 2024',
-    course: 'MATH401: Applications of Linear Algebra',
-    topics: [
-      {name: 'Leontief Input-Output Model', link:'https://share.goodnotes.com/s/Y1Nd7WfSVCX5ncYjsPFqPu'},
-      {name: 'Least Squares & Curve Fitting', link:'https://share.goodnotes.com/s/pK2aX5n5eE7KQeXksqMjGx'},
-      {name: 'Team Ranking', link:'https://share.goodnotes.com/s/X8H05d0ti1K0pB5rSHOXnd'},
-      {name: 'Markov Chains', link:'https://share.goodnotes.com/s/Dg6Xlw3b60zK5Pu3a4kUK2'},
-      {name: 'Google PageRanking', link:'https://share.goodnotes.com/s/u4x9hfxsW6FpmgIOXKZKwS'},
-      {name: 'Single Value Decomposition', link:'https://share.goodnotes.com/s/0BvDc3dzOJbgyE1OuHBwVy'},
-      {name: 'Markov Chains', link:'https://share.goodnotes.com/s/Dg6Xlw3b60zK5Pu3a4kUK2'},
-      {name: 'Google PageRanking', link:'https://share.goodnotes.com/s/u4x9hfxsW6FpmgIOXKZKwS'},
-      {name: 'Discrete Dynamic Systems', link:'https://share.goodnotes.com/s/iRzxxTCdOYyABEQ30dP9zy'},
-      {name: 'Single Value Decomposition', link:'https://share.goodnotes.com/s/0BvDc3dzOJbgyE1OuHBwVy'},
-      {name: 'Matrix Approximation', link:'https://share.goodnotes.com/s/CchjAEduOPbbcl8dy66EcA'},
-      {name: 'Image Compression', link:'https://share.goodnotes.com/s/FKOW91E5iFBCkhzm4C3yJD'},
-      {name: 'Discrete Dynamic Systems', link:'https://share.goodnotes.com/s/iRzxxTCdOYyABEQ30dP9zy'},
-      {name: 'Modular Arithmetic', link:'https://share.goodnotes.com/s/dwtWaqObgpF4m3cnUwrhgw'},
-      {name: 'Differential Equations', link:'https://share.goodnotes.com/s/1iNx8fS87WxrLs8iozM8Qs'},
-      {name: 'Cryptography', link:'https://share.goodnotes.com/s/Llg2rT7XI4yoUWUucUryEa'},
-      {name: 'Advanced Cryptography', link:'https://share.goodnotes.com/s/urHzjvOX2D5atevDQojG6x'},
-      {name: 'Lattice & NTRU', link:'https://share.goodnotes.com/s/kFYKtBOh5qutryGOE8wrci'},
-      {name: 'Quantum Vulnerability', link: 'https://share.goodnotes.com/s/ANyefyWQZVnrIBkBGtpVbv'}
-    ],
-  },
-  {
-    semester: 'Fall 2024',
-    course: 'MATH424: Intro. to the Mathematics of Finance',
-    topics: [
-      {name: 'Probability', link:'https://share.goodnotes.com/s/kuw5j3482Xj0EBr6HQjunz'},
-      {name: 'Normal Random Variables', link:'https://share.goodnotes.com/s/uktFcyTq0ub6AKWhZVGj7V'},
-      {name: 'Brownian Motion', link:'https://share.goodnotes.com/s/3RyXehZTxJoA5QGs1Jx2bZ'},
-      {name: 'Interest Rates & Present Value Analysis', link:'https://share.goodnotes.com/s/9MaauYZhlnbdxlNeVnxTRG'},
-      {name: 'Price Contracts via Arbitrage', link:'https://share.goodnotes.com/s/exP7v3VsKfENxuZQlMaKFs'},
-      {name: 'The Arbitrage Theorem', link:'https://share.goodnotes.com/s/ci1MTJjfokU71XGUrc7bkH'},
-      {name: 'Black Scholes Formula', link:'https://share.goodnotes.com/s/TJF8YmqnldxSEKjI4KJjqu'}
     ],
   },
   {
@@ -101,17 +56,7 @@ const courses = [
   },
   {
     semester: 'Spring 2024',
-    course: 'CMSC434: Human Computer Interaction',
-    topics: [],
-  },
-  {
-    semester: 'Spring 2024',
-    course: 'CMSC388J: Python and Flask Web Dev.',
-    topics: [],
-  },
-  {
-    semester: 'Spring 2024',
-    course: 'CMSC320: Intro. to Data Science',
+    course: 'CMSC320: Introduction to Data Science',
     topics: [
       { name: 'Introduction & Experiment Design', link: 'https://share.goodnotes.com/s/QtQKr54PJIeG19hCTHGG6j' },
       { name: 'Git + Pandas + SQL', link: 'https://share.goodnotes.com/s/zIIMmKLb5spjxeal31vEmw' },
@@ -126,16 +71,6 @@ const courses = [
       { name: 'Recommendation System', link: 'https://share.goodnotes.com/s/zKpCPfe8x0YAXBJcRvXdCr' },
       { name: 'Data Ethics', link: 'https://share.goodnotes.com/s/ZfNGCaSSJ7uzGbcpz4JgVo' },
     ],
-  },
-  {
-    semester: 'Spring 2024',
-    course: 'DATA110: App. of R for Data Science',
-    topics: [],
-  },
-  {
-    semester: 'Spring 2024',
-    course: 'DATA120: Python Prog. for Data Science',
-    topics: [],
   },
   {
     semester: 'Fall 2023',
@@ -161,28 +96,13 @@ const courses = [
   },
   {
     semester: 'Fall 2023',
-    course: 'CMSC421: Intro. to Artificial Intelligence',
-    topics: [],
-  },
-  {
-    semester: 'Fall 2023',
-    course: 'CMSC335: Web App. Dev. with JavaScript',
+    course: 'CMSC335: Web Application Development with JavaScript',
     topics: [
       { name: 'HTML & CSS', link: 'https://share.goodnotes.com/s/UYgzUJJHfBX5gm3hB9u5PV' },
       { name: 'JavaScript', link: 'https://share.goodnotes.com/s/FCb0pqnyZhfYmNiPM3Dn7Y' },
       { name: 'Node.JS, Express.JS, API CALLS', link: 'https://share.goodnotes.com/s/Uf1GJ5jG9t19UEUmDziKXR' },
       { name: 'MongoDB', link: 'https://share.goodnotes.com/s/bU2DjBaA1OSWjDXcyi6tFf' },
     ],
-  },
-  {
-    semester: 'Fall 2023',
-    course: 'CMSC389T: Intro. to Git, Github and Project Management',
-    topics: [],
-  },
-  {
-    semester: 'Fall 2023',
-    course: 'CMSC389P: Mastering the PM Interview',
-    topics: [],
   },
   {
     semester: 'Spring 2023',
@@ -196,7 +116,7 @@ const courses = [
   },
   {
     semester: 'Spring 2023',
-    course: 'CMSC330: Org. of Prog. Languages',
+    course: 'CMSC330: Organization of Programming Languages',
     topics: [
       { name: 'Ocaml Notes ', link: ' https://share.goodnotes.com/s/WXJKI3HloO4xIZBksp64W0' },
       { name: 'Finite State Machines', link: 'https://share.goodnotes.com/s/fIyX9fMlFeKaXBYrY5Sgv8' },
@@ -205,174 +125,133 @@ const courses = [
       { name: 'Rust', link: 'https://share.goodnotes.com/s/noCbXwfpEkqiboxMhnpJ0J' },
       { name: 'Ruby', link: 'https://share.goodnotes.com/s/61p1zVZMNIVHVN2pGPwsf4' },
     ],
-  },
-  {
-    semester: 'Spring 2023',
-    course: 'CMSC389O: The Coding Interview',
-    topics: [],
-  },
-  {
-    semester: 'Spring 2023',
-    course: 'MATH206: Intro. To MATLAB',
-    topics: [],
-  },
-  {
-    semester: 'Spring 2023',
-    course: 'MATH241: Calculus III',
-    topics: [],
-  },
-  {
-    semester: 'Fall 2022',
-    course: 'CMSC216: Intro. to Computer Systems',
-    topics: [],
-  },
-  {
-    semester: 'Fall 2022',
-    course: 'CMSC250: Discrete Structures',
-    topics: [],
-  },
-  {
-    semester: 'Fall 2022',
-    course: 'MATH240: Intro. to Linear Algebra',
-    topics: [],
-  },
-  {
-    semester: 'Fall 2022',
-    course: 'FIRE298: FIRE Semester 3',
-    topics: [],
-  },
-  {
-    semester: 'Summer 2022',
-    course: 'STAT400: App. Probability & Statistics I',
-    topics: [],
-  },
-  {
-    semester: 'Spring 2022',
-    course: 'CMSC132: Object-Oriented Prog. II',
-    topics: [],
-  },
-  {
-    semester: 'Spring 2022',
-    course: 'MATH141: Calculus II',
-    topics: [],
-  },
-  {
-    semester: 'Spring 2022',
-    course: 'FIRE198: FIRE Semester 2',
-    topics: [],
-  },
-  {
-    semester: 'Fall 2021',
-    course: 'CMSC131: Object-Oriented Prog. I',
-    topics: [],
-  },
-  {
-    semester: 'Fall 2021',
-    course: 'MATH140: Calculus I',
-    topics: [],
-  },
-  {
-    semester: 'Fall 2021',
-    course: 'FIRE120: FIRE Semester 1',
-    topics: [],
-  },
+  }
 ];
 
-const groupCoursesBySemester = (coursesArray) => {
-  return coursesArray.reduce((acc, course) => {
-    const { semester } = course;
-    if (!acc[semester]) {
-      acc[semester] = [];
-    }
-    acc[semester].push(course);
-    return acc;
-  }, {});
+const GROUPS = {
+  'AI & Machine Learning': [
+    'CMSC422: Introduction to Machine Learning',
+    'CMSC472: Introduction to Deep Learning',
+    'CMSC320: Introduction to Data Science',
+  ],
+  'Algorithms': [
+    'CMSC451: Design and Analysis of Computer Algorithms',
+    'CMSC351: Algorithms',
+  ],
+  'Databases': [
+    'CMSC424: Database Design',
+  ],
+  'Web Development': [
+    'CMSC335: Web Application Development with JavaScript',
+  ],
+  'Functional Programming': [
+    'CMSC330: Organization of Programming Languages',
+  ],
 };
 
-const groupedCourses = groupCoursesBySemester(courses);
+// Helper: map group name -> course objects from the courses array
+const groupColors = {
+  'AI & Machine Learning': '#EF4444', // red
+  'Algorithms': '#F59E0B', // amber
+  'Functional Programming': '#10B981', // emerald
+  'Web Development': '#3B82F6', // blue
+  'Databases': '#6366F1', // indigo
+};
 
 const RelevantCoursework = () => {
-  const [selectedSemester, setSelectedSemester] = useState(Object.keys(groupedCourses)[0] || "Spring 2025");
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedGroup, setSelectedGroup] = useState(Object.keys(GROUPS)[0]);
+  const [selectedSemester, setSelectedSemester] = useState(null);
   const [selectedCourse, setSelectedCourse] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
+  // Get unique semesters
+  const semesters = useMemo(() => {
+    return [...new Set(courses.map(c => c.semester))].sort().reverse();
+  }, []);
 
-  const openModal = (course) => {
-    setSelectedCourse(course);
-  };
+  // Filter and group courses
+  const filteredCourses = useMemo(() => {
+    return courses.filter(course => {
+      // Apply search filter
+      if (searchTerm) {
+        const search = searchTerm.toLowerCase();
+        const matchesCourse = course.course.toLowerCase().includes(search);
+        const matchesTopics = course.topics.some(t => t.name.toLowerCase().includes(search));
+        if (!matchesCourse && !matchesTopics) return false;
+      }
 
-  const closeModal = () => {
-    setSelectedCourse(null);
-  };
+      // Apply group filter
+      if (selectedGroup) {
+        const groupCourses = GROUPS[selectedGroup] || [];
+        if (!groupCourses.includes(course.course)) return false;
+      }
+
+      return true;
+    });
+  }, [searchTerm, selectedGroup]);
 
   return (
-    <section className="bg-black text-white py-12" id='coursework'>
-      <div className="container mx-auto px-6 lg:px-8">
-        <h2 className="text-4xl text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-500 to-yellow-500 mb-12 font-extrabold">Relevant Coursework</h2>
-
-        {/* Semester Selector */}
-        <div className="relative mb-8">
-          <button
-            onClick={toggleDropdown}
-            className="block w-full py-2 px-4 text-left bg-transparent border border-white font-semibold text-white rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 lg:hidden flex justify-between items-center"
-          >
-            {selectedSemester}
-            <FaChevronDown className="ml-2" />
-          </button>
-
-          {isDropdownOpen && (
-            <ul className="absolute z-10 mt-2 w-full bg-black rounded-md shadow-lg">
-              {Object.keys(groupedCourses).map(semester => (
-                <li key={semester}>
-                  <button
-                    onClick={() => {
-                      setSelectedSemester(semester);
-                      setIsDropdownOpen(false);
-                    }}
-                    className="block w-full py-2 px-4 text-left text-white hover:bg-gray-700 focus:outline-white focus:bg-gray-700"
-                  >
-                    {semester}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-
-          <div className="hidden lg:flex justify-center space-x-4">
-            {Object.keys(groupedCourses).map(semester => (
-              <button
-                key={semester}
-                onClick={() => setSelectedSemester(semester)}
-                className={`py-2 px-4 whitespace-nowrap ${selectedSemester === semester ? "text-red-500 border-b-2 font-semibold border-red-500" : "text-white font-semibold hover:text-white transition"}`}
-              >
-                {semester}
-              </button>
-            ))}
-          </div>
+    <section className="py-24">
+      <div className="container max-w-5xl mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-extrabold mb-4">
+            <span className="inline-block px-4 py-1 bg-transparent text-black dark:text-white">
+              Course Notes
+            </span>
+          </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {groupedCourses[selectedSemester].map((course, index) => (
-            <div key={index} className="relative p-4 bg-transparent border border-gray-900 rounded-lg font-extrabold shadow-md">
-              {course.course}
-              {/* View Notes Button */}
-              {course.topics.length > 0 && (
-                <button
-                  onClick={() => openModal(course)}
-                  className="mt-4 text-blue-400 hover:text-blue-500 font-extrabold flex items-center"
+
+        <CourseFilters
+          searchTerm={searchTerm}
+          onSearchChange={setSearchTerm}
+          selectedGroup={selectedGroup}
+          groups={Object.keys(GROUPS)}
+          onGroupChange={setSelectedGroup}
+        />
+
+        <motion.div layout className="space-y-4">
+          <AnimatePresence>
+            {filteredCourses.map((course) => {
+              // Find which group this course belongs to
+              const group = Object.entries(GROUPS).find(([_, courses]) => 
+                courses.includes(course.course)
+              )?.[0];
+              
+              return (
+                <motion.div
+                  key={course.course}
+                  layout
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
                 >
-                  <FaStickyNote className="mr-1" /> View Notes
-                </button>
-              )}
-            </div>
-          ))}
-        </div>
+                  <CourseCard
+                    course={course}
+                    onClick={() => setSelectedCourse(course)}
+                    groupColor={group ? groupColors[group] : '#94A3B8'}
+                  />
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+        </motion.div>
+
+        {filteredCourses.length === 0 && (
+          <div className="text-center py-12">
+            <FaChalkboardTeacher className="mx-auto text-4xl text-black dark:text-white mb-4" />
+            <p className="text-lg text-black/70 dark:text-white/80">No courses found matching your search</p>
+            <p className="text-sm text-black/60 dark:text-white/70">Try different keywords or select another track</p>
+          </div>
+        )}
 
         {/* Notes Modal */}
         {selectedCourse && (
-          <RelevantCourseworkModal show={!!selectedCourse} onClose={closeModal} course={selectedCourse} />
+          <RelevantCourseworkModal
+            show={!!selectedCourse}
+            onClose={() => setSelectedCourse(null)}
+            course={selectedCourse}
+          />
         )}
       </div>
     </section>

@@ -1,7 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Head from "next/head"; 
+import Head from "next/head";
 import React from "react";
+import Sidebar from "../components/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +12,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-
   return (
     <html lang="en">
       <Head>
@@ -19,7 +19,12 @@ export default function RootLayout({ children }) {
         <meta name="description" content={metadata.description} />
         <link rel="icon" href="/app/favicon.ico" />
       </Head>
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className}`}> 
+        <Sidebar />
+        <main className="transition-all duration-300 ml-16 md:ml-64 px-4 md:px-8">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }

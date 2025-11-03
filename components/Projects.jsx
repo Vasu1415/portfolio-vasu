@@ -79,54 +79,58 @@ const ProjectTimeline = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="container mx-auto p-8 min-h-screen bg-black text-white flex flex-col items-center">
+    <div className="container mx-auto p-8 min-h-screen bg-white dark:bg-black text-black dark:text-white flex flex-col items-center">
       {/* Heading */}
-      <h2 className="text-5xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-red-500 to-yellow-500 mb-12">
+      <h2 className="text-4xl font-extrabold inline-block px-4 py-1 bg-transparent text-black dark:text-white mb-12 mx-auto text-center">
         Projects
       </h2>
 
       {/* Timeline */}
-      <div className="relative w-full flex items-center justify-center mb-12">
-        <div className="absolute w-full h-1 bg-gradient-to-r from-red-500 via-red-500 to-yellow-500"></div>
+      <div className="relative w-full flex items-center justify-center mb-12" style={{ height: 40 }}>
+        <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-1 bg-black dark:bg-white" />
 
         {/* Timeline Milestones */}
         {projects.map((project, index) => (
-          <div key={index} className="relative">
+          <div
+            key={index}
+            className="absolute top-1/2"
+            style={{ left: `${(index / (projects.length - 1)) * 100}%` }}
+          >
             <div
               onClick={() => setActiveIndex(index)}
-              className={`cursor-pointer w-8 h-8 rounded-full border-4 ${
+              className={`transform -translate-x-1/2 -translate-y-1/2 cursor-pointer w-8 h-8 rounded-none border-4 ${
                 activeIndex === index
-                  ? "bg-black border-white shadow-lg shadow-red-400/50"
-                  : "bg-slate-950 border-gray-600"
-              } transition transform hover:scale-110`}
-              style={{ marginLeft: `${index * 20}%` }}
+                  ? "bg-black dark:bg-white border-black dark:border-white shadow-lg shadow-black/30 dark:shadow-white/20"
+                  : "bg-white dark:bg-black border-black dark:border-white"
+              } transition-transform hover:scale-110`}
             ></div>
           </div>
         ))}
       </div>
 
-      <div className="w-full max-w-4xl bg-transparent bg-opacity-90 p-6 rounded-lg shadow-md text-white flex flex-col lg:flex-row items-center gap-8">
+      <div className="w-full max-w-4xl bg-white dark:bg-black p-6 rounded-none shadow-md text-black dark:text-white flex flex-col lg:flex-row items-center gap-8">
         <div className="w-full lg:w-1/2">
           <img
             src={projects[activeIndex].image}
             alt={projects[activeIndex].name}
-            className="rounded-lg shadow-lg"
+            className="rounded-none shadow-md w-full h-auto object-cover"
           />
         </div>
 
         {/* Text Details Section */}
         <div className="w-full lg:w-1/2">
-          <h3 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-red-500 to-yellow-500">
+          <h3 className="text-2xl sm:text-3xl font-bold mb-4 bg-transparent text-black dark:text-white">
             {projects[activeIndex].name}
           </h3>
-          <p className="text-white font-extrabold mb-4">{projects[activeIndex].description}</p>
+          <p className="text-black dark:text-white font-medium mb-4 text-sm sm:text-base">{projects[activeIndex].description}</p>
 
           {/* Skills */}
           <div className="flex flex-wrap gap-2 mb-4">
             {projects[activeIndex].skills.map((skill, skillIndex) => (
               <span
                 key={skillIndex}
-                className="bg-white text-black font-semibold text-sm px-3 py-1 rounded-full"
+                className="border border-black dark:border-white text-black dark:text-white font-semibold text-sm px-2 py-1 rounded-none inline-block"
+                title={skill}
               >
                 {skill}
               </span>
@@ -140,9 +144,10 @@ const ProjectTimeline = () => {
                 href={projects[activeIndex].githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white transition"
+                    className="inline-flex items-center justify-center w-10 h-8 border border-black dark:border-white rounded-none text-black dark:text-white transition focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
+                aria-label="Open GitHub repository"
               >
-                <FaGithub size={24} />
+                <FaGithub size={18} />
               </a>
             )}
             {projects[activeIndex].liveDemo && (
@@ -150,9 +155,10 @@ const ProjectTimeline = () => {
                 href={projects[activeIndex].liveDemo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white transition"
+                    className="inline-flex items-center justify-center w-10 h-8 border border-black dark:border-white rounded-none text-black dark:text-white transition focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
+                aria-label="Open live demo"
               >
-                <FaExternalLinkAlt size={24} />
+                <FaExternalLinkAlt size={18} />
               </a>
             )}
           </div>

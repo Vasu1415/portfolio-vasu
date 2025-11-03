@@ -1,61 +1,91 @@
-import { FaTimes, FaExternalLinkAlt } from 'react-icons/fa';
+import Image from 'next/image';
+import { FaTimes, FaExternalLinkAlt, FaRegGem } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import { FaRegGem } from 'react-icons/fa';
-
 
 const ExperienceModal = ({ show, onClose, experience }) => {
   if (!show) return null;
 
+  const [role, company] = experience?.title?.includes('@')
+    ? experience.title.split('@').map((s) => s.trim())
+    : [experience?.title ?? '', ''];
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="relative max-w-lg p-6 bg-slate-950 bg-opacity-90 rounded-xl shadow-lg border border-gray-700 transform transition-all duration-300 scale-100">
-        <button
-          className="absolute top-4 right-4 text-red-500 hover:text-red-600 transition"
-          onClick={onClose}
-        >
-          <FaTimes size={20} />
-        </button>
-
-        <ul className="space-y-4">
-          {experience.description.map((desc, i) => (
-            <motion.li
-              key={i}
-              className="flex items-start text-gray-300"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: i * 0.1 }}
-            >
-              <motion.span
-                className="mr-3 text-red-500"
-                whileHover={{ scale: 1.3, color: "#fbbf24" }}
-              >
-                <FaRegGem />
-              </motion.span>
-              <span className="leading-relaxed">{desc}</span>
-            </motion.li>
-          ))}
-        </ul>
-
-        {experience.links.map((link, index) => (
-          <a
-            key={index}
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-black transition duration-300 ease-out border-2 border-gray-900 rounded-full shadow-md group mb-4"
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4 sm:px-8">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="relative w-full max-w-3xl bg-white/10 dark:bg-white/5 border border-white/20 rounded-xl shadow-xl p-6 sm:p-8 text-white backdrop-blur-lg"
+      >
+        {/* Header */}
+        <div className="flex items-start justify-between gap-6">
+          <div className="flex items-start gap-4">
+            {experience.logo && (
+              <div className="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden">
+                <Image
+                  src={experience.logo}
+                  alt={experience.title}
+                  width={160}
+                  height={96}
+                  className="object-contain w-full h-full"
+                />
+              </div>
+            )}
+            <div>
+              <h3 className="text-xl sm:text-2xl font-bold leading-tight">{role}</h3>
+              {company && (
+                <p className="uppercase text-white/60 tracking-widest text-sm mt-1">
+                  {company}
+                </p>
+              )}
+              <p className="text-white/50 text-sm mt-1">{experience.date}</p>
+            </div>
+          </div>
+          <button
+            onClick={onClose}
+            aria-label="Close"
+            className="text-white hover:opacity-80 transition p-1"
           >
-            <span className="absolute inset-0 flex items-center justify-center w-full h-full text-black duration-300 -translate-x-full bg-white group-hover:translate-x-0 ease">
-              <FaExternalLinkAlt className="mr-2" />
-              {link.name}
-            </span>
-            <span className="absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease">
-              <FaExternalLinkAlt className="mr-2" />
-              {link.name}
-            </span>
-            <span className="relative invisible font-extrabold">{link.name}</span>
-          </a>
-        ))}
-      </div>
+            <FaTimes size={20} />
+          </button>
+        </div>
+
+        <hr className="border-white/20 my-6" />
+
+        {/* Description */}
+        <div className="space-y-4 max-h-[50vh] overflow-y-auto pr-1">
+          {experience.description.map((desc, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: i * 0.04 }}
+              className="flex items-start gap-3"
+            >
+              <FaRegGem className="mt-1 text-white/70 flex-shrink-0" />
+              <p className="text-sm text-white/90 leading-relaxed">{desc}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Links */}
+        {experience.links?.length > 0 && (
+          <div className="mt-6 flex flex-wrap gap-3">
+            {experience.links.map((link, index) => (
+              <a
+                key={index}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium bg-white text-black rounded-md hover:bg-gray-200 transition"
+              >
+                <FaExternalLinkAlt />
+                {link.name}
+              </a>
+            ))}
+          </div>
+        )}
+      </motion.div>
     </div>
   );
 };
